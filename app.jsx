@@ -49,7 +49,7 @@ const Hero = () => {
         <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
             <div className="hero-glow"></div>
             
-            <div className="container mx-auto px-6 md:px-12 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                 <div className="w-full md:w-3/5 text-center md:text-left z-10 animate-fade-in mt-10 md:mt-0">
                     <p className="text-primary font-medium tracking-widest uppercase mb-4">Hi, I am</p>
                     <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -105,7 +105,7 @@ const Hero = () => {
 const About = () => {
     return (
         <section id="about" className="py-24 bg-dark relative">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About <span className="text-primary">Me</span></h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 rounded-full"></div>
@@ -171,7 +171,7 @@ const Skills = () => {
 
     return (
         <section id="skills" className="py-24 relative">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">My <span className="text-secondary">Skills</span></h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full"></div>
@@ -216,7 +216,7 @@ const Services = () => {
 
     return (
         <section id="services" className="py-24 bg-dark relative">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What I <span className="text-primary">Do</span></h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
@@ -244,7 +244,7 @@ const Services = () => {
 const Contact = () => {
     return (
         <section id="contact" className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12">
                 <div className="glass-card max-w-4xl mx-auto rounded-3xl p-8 md:p-16 text-center relative overflow-hidden">
                     {/* Background decoration */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl -z-10"></div>
@@ -274,7 +274,7 @@ const Footer = () => {
     return (
         <footer className="bg-darker pt-16 pb-8 border-t border-white/5 relative z-10">
             {/* Removed padding as we now use TopHeader */}
-            <div className="container mx-auto px-6 md:px-12 pb-16 md:pb-0">
+            <div className="container mx-auto px-6 md:pl-28 md:pr-12 pb-16 md:pb-0">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
                     {/* Brand */}
                     <div>
