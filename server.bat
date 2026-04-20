@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 echo Starting Localhost Server on port 8080...
 echo Please wait, your browser will open shortly.
 start http://localhost:8080/index.html
