@@ -259,7 +259,7 @@ const Contact = () => {
                     </p>
                     
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <a href="https://wa.me/qr/QVRIYITDQI7OM" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-500/10 border border-green-500/30 text-green-400 font-bold rounded-full hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:-translate-y-1">
+                        <a href="https://wa.me/8801888343078" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-500/10 border border-green-500/30 text-green-400 font-bold rounded-full hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:-translate-y-1">
                             <i className="fa-brands fa-whatsapp text-xl"></i>
                             WhatsApp Me
                         </a>
@@ -309,7 +309,7 @@ const Footer = () => {
                             <a href="https://www.facebook.com/share/17BuWPrmag/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all border border-transparent" title="Facebook">
                                 <i className="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="https://wa.me/qr/QVRIYITDQI7OM" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all border border-transparent" title="WhatsApp">
+                            <a href="https://wa.me/8801888343078" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all border border-transparent" title="WhatsApp">
                                 <i className="fa-brands fa-whatsapp"></i>
                             </a>
                             <a href="https://t.me/borhankabir8" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-blue-500 hover:text-white transition-all border border-transparent" title="Telegram">
