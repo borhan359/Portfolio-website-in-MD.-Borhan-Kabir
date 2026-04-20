@@ -9,8 +9,12 @@ const FloatingLogo = () => (
     <div className="fixed top-2 right-6 md:right-12 z-50 animate-fade-in group">
         <a href="#home" className="block relative px-6 py-3 bg-dark/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-300 overflow-hidden hover:-translate-y-1">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="text-xl md:text-2xl font-bold tracking-tighter text-white relative z-10 flex items-center gap-2">
-                <i className="fa-solid fa-code text-primary"></i> Md. Borhan <span className="text-primary">Kabir</span>
+            <span className="text-xl md:text-2xl tracking-tight relative z-10 flex items-center gap-2">
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 text-primary">
+                    <i className="fa-solid fa-code text-sm"></i>
+                </div>
+                <span className="font-bold text-white">Md. Borhan</span>
+                <span className="font-light text-primary">Kabir</span>
             </span>
         </a>
     </div>
@@ -52,8 +56,8 @@ const Hero = () => {
             <div className="container mx-auto px-6 md:pl-28 md:pr-12 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                 <div className="w-full md:w-3/5 text-center md:text-left z-10 animate-fade-in mt-10 md:mt-0">
                     <p className="text-primary font-medium tracking-widest uppercase mb-4">Hi, I am</p>
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        Md. Borhan <span className="text-gradient">Kabir</span>
+                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500">Md. Borhan</span> <span className="text-gradient">Kabir</span>
                     </h1>
                     <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light">
                         Computer Science Student & Aspiring Programmer
