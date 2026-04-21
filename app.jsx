@@ -120,29 +120,24 @@ const translations = {
 // --- Components ---
 
 const LanguageToggle = ({ language, setLanguage }) => (
-    <div className="fixed top-4 right-4 z-[60] animate-fade-in">
+    <div className="fixed top-5 left-5 z-[70] animate-fade-in">
         <button 
             onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
-            className="group relative px-4 py-2 bg-dark/40 backdrop-blur-md border border-white/10 rounded-xl text-white font-bold hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 shadow-xl flex items-center gap-2 overflow-hidden"
+            className="group relative px-2.5 py-1 bg-dark/60 backdrop-blur-md border border-white/10 rounded-lg text-white text-[10px] font-black hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 shadow-2xl overflow-hidden border-b-2 border-b-primary/30"
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <i className="fa-solid fa-globe text-primary relative z-10"></i>
-            <span className="relative z-10 font-bold tracking-wider">{language === 'en' ? 'বাংলা' : 'EN'}</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10 tracking-tighter">{language === 'en' ? 'BN' : 'EN'}</span>
         </button>
     </div>
 );
 
 const FloatingLogo = ({ t }) => (
-    <div className="fixed top-4 left-4 md:left-auto md:right-28 md:top-2 z-50 animate-fade-in group">
-        <a href="#home" className="block relative px-3 py-1.5 md:px-6 md:py-3 bg-dark/40 backdrop-blur-md border border-white/10 rounded-xl md:rounded-2xl shadow-xl hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-300 overflow-hidden hover:-translate-y-1">
+    <div className="fixed top-4 right-4 md:right-28 md:top-4 z-50 animate-fade-in group">
+        <a href="#home" className="flex items-center gap-3 relative px-3 py-1.5 md:px-6 md:py-3 bg-dark/40 backdrop-blur-md border border-white/10 rounded-xl md:rounded-2xl shadow-xl hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] transition-all duration-300 overflow-hidden hover:-translate-y-1">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="text-lg md:text-2xl tracking-tight relative z-10 flex items-center gap-2">
-                <div className="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-lg bg-primary/10 border border-primary/20 text-primary">
-                    <i className="fa-solid fa-code text-[10px] md:text-sm"></i>
-                </div>
-                <span className="font-bold text-white hidden sm:inline">{t.hero.name}</span>
-                <span className="font-bold text-white sm:hidden">{t.hero.name.split(' ').pop()}</span>
-                <span className="font-light text-primary">{t.hero.surname}</span>
+            <img src="footer-logo-v2.png" alt="Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-lg relative z-10" style={{ mixBlendMode: 'screen', filter: 'contrast(1.2) brightness(1.1)' }} />
+            <span className="text-lg md:text-xl font-bold tracking-tighter text-white relative z-10">
+                {t.hero.name} <span className="text-primary">{t.hero.surname}</span>
             </span>
         </a>
     </div>
@@ -361,7 +356,7 @@ const Footer = ({ t }) => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
                     <div>
                         <a href="#home" className="text-2xl font-bold tracking-tighter text-white flex items-center justify-center md:justify-start gap-3 mb-4">
-                            <img src="footer-logo-v2.png" alt="Logo" className="h-8 w-auto rounded-lg" style={{ mixBlendMode: 'screen' }} />
+                            <img src="footer-logo-v2.png" alt="Logo" className="h-8 w-auto rounded-lg" style={{ mixBlendMode: 'screen', filter: 'contrast(1.2) brightness(1.1)' }} />
                             <span>{t.hero.name} <span className="text-primary">{t.hero.surname}</span></span>
                         </a>
                         <p className="text-gray-400 italic">"{t.footer.quote}"</p>
