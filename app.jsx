@@ -143,29 +143,47 @@ const FloatingLogo = ({ t }) => (
     </div>
 );
 
-const FloatingNavbar = ({ t }) => {
+const FloatingNavbar = ({ t, activeSection }) => {
     const navLinks = [
-        { name: t.nav.home, href: '#home', icon: 'fa-solid fa-house' },
-        { name: t.nav.about, href: '#about', icon: 'fa-solid fa-user' },
-        { name: t.nav.skills, href: '#skills', icon: 'fa-solid fa-code' },
-        { name: t.nav.services, href: '#services', icon: 'fa-solid fa-briefcase' },
-        { name: t.nav.contact, href: '#contact', icon: 'fa-solid fa-paper-plane' },
+        { name: t.nav.home, href: '#home', icon: 'fa-solid fa-house', id: 'home' },
+        { name: t.nav.about, href: '#about', icon: 'fa-solid fa-user', id: 'about' },
+        { name: t.nav.skills, href: '#skills', icon: 'fa-solid fa-code', id: 'skills' },
+        { name: t.nav.services, href: '#services', icon: 'fa-solid fa-briefcase', id: 'services' },
+        { name: t.nav.contact, href: '#contact', icon: 'fa-solid fa-paper-plane', id: 'contact' },
     ];
 
     return (
-        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 md:bottom-auto md:top-[40%] md:left-6 md:right-auto md:-translate-x-0 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-2 md:gap-4">
-            {navLinks.map((link) => (
-                <a 
-                    key={link.name} 
-                    href={link.href} 
-                    className="w-10 h-10 md:w-12 md:h-12 bg-dark/60 backdrop-blur-md border border-white/10 flex items-center justify-center rounded-xl md:rounded-2xl text-gray-400 hover:text-white hover:border-primary/50 hover:bg-primary/20 md:hover:translate-x-1 hover:-translate-y-1 md:hover:-translate-y-0 transition-all duration-300 group shadow-lg"
-                >
-                    <i className={`${link.icon} text-lg md:text-xl`}></i>
-                    <span className="hidden md:flex absolute left-16 bg-dark/90 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-white/10 font-medium shadow-xl">
-                        {link.name}
-                    </span>
-                </a>
-            ))}
+        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 md:bottom-auto md:top-[40%] md:left-6 md:right-auto md:-translate-x-0 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-2 md:gap-4 bg-dark/40 md:bg-transparent p-2 md:p-0 backdrop-blur-lg md:backdrop-blur-none rounded-2xl md:rounded-none border border-white/5 md:border-none">
+            {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                    <a 
+                        key={link.name} 
+                        href={link.href} 
+                        className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl md:rounded-2xl transition-all duration-300 group relative shadow-lg ${
+                            isActive 
+                            ? 'nav-active animate-pulse-glow text-white scale-110 md:scale-100' 
+                            : 'bg-dark/60 backdrop-blur-md border border-white/10 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-primary/20 md:hover:translate-x-1 hover:-translate-y-1 md:hover:-translate-y-0'
+                        }`}
+                    >
+                        <i className={`${link.icon} text-lg md:text-xl`}></i>
+                        
+                        {/* Desktop & Mobile Label */}
+                        <span className={`absolute ${
+                            isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0'
+                        } bottom-14 md:bottom-auto md:left-16 bg-dark/90 backdrop-blur-md text-white text-[10px] md:text-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 pointer-events-none whitespace-nowrap border border-white/10 font-medium shadow-2xl z-[60]`}>
+                            {link.name}
+                            {/* Tooltip Arrow for mobile */}
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-dark/90 border-r border-b border-white/10 rotate-45 md:hidden"></div>
+                        </span>
+                        
+                        {/* Active Dot indicator for mobile */}
+                        {isActive && (
+                            <span className="absolute -bottom-1 w-1 h-1 bg-primary rounded-full md:hidden"></span>
+                        )}
+                    </a>
+                );
+            })}
         </nav>
     );
 };
@@ -175,13 +193,13 @@ const Hero = ({ t }) => {
         <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
             <div className="hero-glow"></div>
             
-            <div className="container mx-auto px-4 sm:px-6 md:pl-28 md:pr-12 flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div className="container mx-auto px-6 md:px-12 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                 <div className="w-full md:w-3/5 text-center md:text-left z-10 animate-fade-in mt-6 md:mt-0">
                     <p className="text-primary font-medium tracking-widest uppercase mb-2 md:mb-4 text-xs md:text-sm">{t.hero.greeting}</p>
-                    <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 md:mb-6 leading-tight tracking-tight">
+                    <h1 className="text-4xl md:text-7xl font-extrabold mb-4 md:mb-6 leading-tight tracking-tight">
                         <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500">{t.hero.name}</span> <span className="text-gradient">{t.hero.surname}</span>
                     </h1>
-                    <h2 className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-4 md:mb-6 font-light">
+                    <h2 className="text-xl md:text-3xl text-gray-300 mb-4 md:mb-6 font-light break-words">
                         {t.hero.subtitle}
                     </h2>
                     <p className="text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0 text-base md:text-lg leading-relaxed">
@@ -230,7 +248,7 @@ const Hero = ({ t }) => {
 const About = ({ t }) => {
     return (
         <section id="about" className="py-16 md:py-24 bg-dark relative">
-            <div className="container mx-auto px-4 sm:px-6 md:pl-28 md:pr-12">
+            <div className="container mx-auto px-6 md:px-12">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.about.title} <span className="text-primary">{t.about.titleHighlight}</span></h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 rounded-full"></div>
@@ -269,7 +287,7 @@ const About = ({ t }) => {
 const Skills = ({ t }) => {
     return (
         <section id="skills" className="py-16 md:py-24 relative">
-            <div className="container mx-auto px-4 sm:px-6 md:pl-28 md:pr-12">
+            <div className="container mx-auto px-6 md:px-12">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.skills.title} <span className="text-secondary">{t.skills.titleHighlight}</span></h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full"></div>
@@ -281,8 +299,8 @@ const Skills = ({ t }) => {
                             <div className={`w-8 h-8 md:w-14 md:h-14 shrink-0 rounded-full bg-dark flex items-center justify-center text-lg md:text-2xl ${skill.color} border border-white/5`}>
                                 <i className={skill.icon}></i>
                             </div>
-                            <div>
-                                <h3 className="text-base md:text-xl font-semibold text-white mb-0.5 md:mb-2">{skill.title}</h3>
+                            <div className="min-w-0">
+                                <h3 className="text-xs sm:text-sm md:text-xl font-semibold text-white mb-0.5 md:mb-2 break-words leading-tight">{skill.title}</h3>
                                 <p className="text-gray-400 leading-relaxed text-[10px] md:text-sm">{skill.desc}</p>
                             </div>
                         </div>
@@ -323,8 +341,8 @@ const Services = ({ t }) => {
 
 const Contact = ({ t }) => {
     return (
-        <section id="contact" className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-6 md:pl-28 md:pr-12">
+        <section id="contact" className="py-24 pb-36 md:pb-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 md:px-12">
                 <div className="glass-card max-w-4xl mx-auto rounded-3xl p-8 md:p-16 text-center relative overflow-hidden">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl -z-10"></div>
                     
@@ -415,13 +433,40 @@ const Footer = ({ t }) => {
 
 const App = () => {
     const [language, setLanguage] = useState('en');
+    const [activeSection, setActiveSection] = useState('home');
     const t = translations[language];
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -20% 0px',
+            threshold: 0.2
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const sections = ['home', 'about', 'skills', 'services', 'contact'];
+        
+        sections.forEach((id) => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div>
             <LanguageToggle language={language} setLanguage={setLanguage} />
             <FloatingLogo t={t} />
-            <FloatingNavbar t={t} />
+            <FloatingNavbar t={t} activeSection={activeSection} />
             <main>
                 <Hero t={t} />
                 <About t={t} />
